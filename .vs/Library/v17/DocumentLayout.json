@@ -22,21 +22,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IBookRepository.cs",
-              "DocumentMoniker": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IBookRepository.cs",
-              "RelativeDocumentMoniker": "Books.Application\\Interfaces\\IBookRepository.cs",
-              "ToolTip": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IBookRepository.cs",
-              "RelativeToolTip": "Books.Application\\Interfaces\\IBookRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-08T13:52:49.871Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -45,9 +32,9 @@
               "RelativeDocumentMoniker": "Books.Application\\Interfaces\\IGenerRepository.cs",
               "ToolTip": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IGenerRepository.cs",
               "RelativeToolTip": "Books.Application\\Interfaces\\IGenerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-08T13:57:29.077Z",
+              "WhenOpened": "2026-02-10T15:00:46.097Z",
               "EditorCaption": ""
             },
             {
@@ -58,9 +45,22 @@
               "RelativeDocumentMoniker": "Books.Application\\Interfaces\\IAuthorRepository.cs",
               "ToolTip": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IAuthorRepository.cs",
               "RelativeToolTip": "Books.Application\\Interfaces\\IAuthorRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-08T13:55:11.812Z",
+              "WhenOpened": "2026-02-10T15:00:45.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IBookRepository.cs",
+              "DocumentMoniker": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IBookRepository.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Interfaces\\IBookRepository.cs",
+              "ToolTip": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IBookRepository.cs",
+              "RelativeToolTip": "Books.Application\\Interfaces\\IBookRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvxIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-10T14:57:12.961Z",
               "EditorCaption": ""
             }
           ]

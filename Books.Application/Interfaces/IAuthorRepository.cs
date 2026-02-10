@@ -16,5 +16,8 @@ namespace Books.Application.Interfaces
         Task<ICollection<AuthorEntity>> GetAllAuthorAsync();
         Task<AuthorEntity> GetAuthorById(int id);
         Task<int>? AddAuthorAsync(AuthorEntity author);
+        Task<AuthorEntity> UpdeteBookById(int id);
+        Task<int?> DeleteBookAsync(AuthorEntity book);
+        Task<ICollection<AuthorEntity>> DeleteAllBooksAsync();
     }
 }

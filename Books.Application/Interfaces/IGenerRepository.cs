@@ -16,5 +16,8 @@ namespace Books.Application.Interfaces
         Task<ICollection<GenreEntity>> GetAllGenreAsync();
         Task<GenreEntity> GetGenreById(int id);
         Task<int>? AddGenreAsync(GenreEntity genre);
+        Task<GenreEntity> UpdeteBookById(int id);
+        Task<int?> DeleteBookAsync(GenreEntity book);
+        Task<ICollection<GenreEntity>> DeleteAllBooksAsync();
     }
 }

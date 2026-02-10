@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\rysya\\Desktop\\Library\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{412F9741-5622-4810-ACA6-D688EC9C0591}|Books.Application\\Books.Application.csproj|c:\\users\\rysya\\desktop\\library\\books.application\\interfaces\\igenerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412F9741-5622-4810-ACA6-D688EC9C0591}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\interfaces\\igenerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412F9741-5622-4810-ACA6-D688EC9C0591}|Books.Application\\Books.Application.csproj|c:\\users\\rysya\\desktop\\library\\books.application\\interfaces\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412F9741-5622-4810-ACA6-D688EC9C0591}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\interfaces\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412F9741-5622-4810-ACA6-D688EC9C0591}|Books.Application\\Books.Application.csproj|c:\\users\\rysya\\desktop\\library\\books.application\\interfaces\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412F9741-5622-4810-ACA6-D688EC9C0591}|Books.Application\\Books.Application.csproj|solutionrelative:books.application\\interfaces\\ibookrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IBookRepository.cs",
+              "DocumentMoniker": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IBookRepository.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Interfaces\\IBookRepository.cs",
+              "ToolTip": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IBookRepository.cs",
+              "RelativeToolTip": "Books.Application\\Interfaces\\IBookRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T13:52:49.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IGenerRepository.cs",
+              "DocumentMoniker": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IGenerRepository.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Interfaces\\IGenerRepository.cs",
+              "ToolTip": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IGenerRepository.cs",
+              "RelativeToolTip": "Books.Application\\Interfaces\\IGenerRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T13:57:29.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IAuthorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IAuthorRepository.cs",
+              "RelativeDocumentMoniker": "Books.Application\\Interfaces\\IAuthorRepository.cs",
+              "ToolTip": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Interfaces\\IAuthorRepository.cs",
+              "RelativeToolTip": "Books.Application\\Interfaces\\IAuthorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T13:55:11.812Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
