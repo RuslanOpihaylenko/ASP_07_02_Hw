@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Books.Application.Interfaces
 {
-    internal interface IGenerRepository
+    public interface IGenerRepository
     {
         /// <summary>
         /// Get genres from BD
@@ -16,8 +16,8 @@ namespace Books.Application.Interfaces
         Task<ICollection<GenreEntity>> GetAllGenreAsync();
         Task<GenreEntity> GetGenreById(int id);
         Task<int>? AddGenreAsync(GenreEntity genre);
-        Task<GenreEntity> UpdeteBookById(int id);
-        Task<int?> DeleteBookAsync(GenreEntity book);
-        Task<ICollection<GenreEntity>> DeleteAllBooksAsync();
+        Task<GenreEntity> UpdeteGenreById(int id, GenreEntity updateGenre);
+        Task<int?> DeleteGenreAsync(GenreEntity genre);
+        Task<ICollection<GenreEntity>> DeleteAllGenresAsync();
     }
 }

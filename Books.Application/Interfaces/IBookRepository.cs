@@ -16,7 +16,7 @@ namespace Books.Application.Interfaces
         Task<ICollection<BookEntity>> GetAllBooksAsync();
         Task<BookEntity> GetBookById(int id);
         Task<int?> AddBookAsync(BookEntity book);
-        Task<BookEntity> UpdeteBookById(int id);
+        Task<BookEntity> UpdeteBookById(int id, BookEntity updateBook);
         Task<int?> DeleteBookAsync(BookEntity book);
         Task<ICollection<BookEntity>> DeleteAllBooksAsync();
     }

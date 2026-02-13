@@ -13,3 +13,4 @@ C:\Users\rysya\Desktop\Library\Books.Application\obj\Debug\net8.0\Books.Applicat
 C:\Users\rysya\Desktop\Library\Books.Application\obj\Debug\net8.0\refint\Books.Application.dll
 C:\Users\rysya\Desktop\Library\Books.Application\obj\Debug\net8.0\Books.Application.pdb
 C:\Users\rysya\Desktop\Library\Books.Application\obj\Debug\net8.0\ref\Books.Application.dll
+C:\Users\rysya\Desktop\Library\Books.Application\obj\Debug\net8.0\Books.Application.sourcelink.json

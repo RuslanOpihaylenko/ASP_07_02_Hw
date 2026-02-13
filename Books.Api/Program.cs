@@ -1,4 +1,7 @@
-
+using Books.Application.Interfaces;
+using Books.Infrastructure.Data;
+using Books.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 namespace Books.Api
 {
     public class Program
@@ -6,9 +9,15 @@ namespace Books.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<LibraryDBContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             // Add services to the container.
-
+            builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+            builder.Services.AddScoped<IGenerRepository, GenreRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

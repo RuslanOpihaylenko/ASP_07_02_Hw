@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Books.Application.Interfaces
 {
-    internal interface IAuthorRepository
+    public interface IAuthorRepository
     {
         /// <summary>
         /// Get authors from BD
@@ -16,8 +16,8 @@ namespace Books.Application.Interfaces
         Task<ICollection<AuthorEntity>> GetAllAuthorAsync();
         Task<AuthorEntity> GetAuthorById(int id);
         Task<int>? AddAuthorAsync(AuthorEntity author);
-        Task<AuthorEntity> UpdeteBookById(int id);
-        Task<int?> DeleteBookAsync(AuthorEntity book);
-        Task<ICollection<AuthorEntity>> DeleteAllBooksAsync();
+        Task<AuthorEntity> UpdeteAuthorById(int id, AuthorEntity updateAuthor);
+        Task<int?> DeleteAuthorAsync(AuthorEntity author);
+        Task<ICollection<AuthorEntity>> DeleteAllAuthorsAsync();
     }
 }

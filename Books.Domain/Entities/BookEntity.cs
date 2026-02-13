@@ -11,8 +11,10 @@ namespace Books.Domain.Entities
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public int Year { get; set; }
-        public int GenderId { get; set; }
+        public int GenreId { get; set; }
         public GenreEntity? Genre { get; set; } 
-        public ICollection<AuthorEntity>? Author { get; set; }
+        public ICollection<AuthorEntity>? Authors { get; set; }
+        public BookEntity() { }
+
     }
 }

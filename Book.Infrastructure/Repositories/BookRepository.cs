@@ -17,22 +17,61 @@ namespace Books.Infrastructure.Repositories
         {
             _context = context;
         }
-        public Task<int?> AddBookAsync(BookEntity book)
+        public async Task<int?> AddBookAsync(BookEntity book)
         {
-            throw new NotImplementedException();
+            _context.Books.Add(book);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<ICollection<BookEntity>> DeleteAllBooksAsync()
+        {
+            var books = await _context.Books.ToListAsync();
+            _context.Books.RemoveRange(books);
+            await _context.SaveChangesAsync();
+            return books;
+        }
+
+        public async Task<int?> DeleteBookAsync(BookEntity book)
+        {
+            if (book == null) 
+            {
+                return null;
+            }
+            _context.Books.Remove(book);
+            return await _context.SaveChangesAsync();
         }
 
         public async Task<ICollection<BookEntity>> GetAllBooksAsync()
         {
             return await _context.Books
-                .Include(b=>b.Title)
-                .Include(b => b.Year)
+                .Include(b => b.Authors)
                 .ToListAsync();
         }
 
-        public Task<BookEntity> GetBookById(int id)
+        public async Task<BookEntity> GetBookById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Books.Include(b => b.Authors).FirstOrDefaultAsync(b => b.Id == id);
+        }
+
+        public async Task<BookEntity> UpdeteBookById(int id, BookEntity updateBook)
+        {
+            var isExist = await _context.Books
+                 .Include(b => b.Authors)
+                 .FirstOrDefaultAsync(b => b.Id == id);
+
+            if (isExist == null)
+            {
+                return null;
+            }
+
+            isExist.Title = updateBook.Title;
+            isExist.Year = updateBook.Year;
+            isExist.GenreId = updateBook.GenreId;
+            isExist.Authors = updateBook.Authors;
+
+            await _context.SaveChangesAsync();
+
+            return isExist;
         }
     }
 }
