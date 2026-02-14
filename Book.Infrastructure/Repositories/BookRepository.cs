@@ -17,12 +17,30 @@ namespace Books.Infrastructure.Repositories
         {
             _context = context;
         }
-        public async Task<int?> AddBookAsync(BookEntity book)
+        private async Task ValidateGenreAsync(int genreId)
         {
-            _context.Books.Add(book);
-            return await _context.SaveChangesAsync();
+            if (!await _context.Genres.AnyAsync(g => g.Id == genreId))
+                throw new Exception("Genre not found");
         }
+        private async Task<ICollection<AuthorEntity>> GetAuthorsAsync(ICollection<int> authorIds)
+        {
+            var authors = await _context.Authors.Where(a => authorIds.Contains(a.Id)).ToListAsync();
+            if (authors.Count != authorIds.Count)
+                throw new Exception("Some authors not found");
+            return authors;
+        }
+        public async Task<int?> AddBookAsync(BookEntity book, ICollection<int>? authorIds)
+        {
+            await ValidateGenreAsync(book.GenreId);
 
+            if (authorIds != null)
+                book.Authors = await GetAuthorsAsync(authorIds);
+
+            _context.Books.Add(book);
+            await _context.SaveChangesAsync();
+            return book.Id;
+        }
+        
         public async Task<ICollection<BookEntity>> DeleteAllBooksAsync()
         {
             var books = await _context.Books.ToListAsync();
@@ -48,11 +66,23 @@ namespace Books.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public async Task<BookEntity> GetBookById(int id)
+        public async Task<BookEntity> GetBookByIdAsync(int id)
         {
             return await _context.Books.Include(b => b.Authors).FirstOrDefaultAsync(b => b.Id == id);
         }
+        public async Task<ICollection<BookEntity>> GetChunk(int pagenum, int limit)
+        {
+            if (pagenum <= 0) pagenum = 1;
+            if(limit <= 0) limit = 10;
 
+            int next = (pagenum - 1) * limit;
+            return await _context.Books
+                .Include(b => b.Authors)
+                .Include(b => b.Genre)
+                .Skip(next)
+                .Take(limit)
+                .ToListAsync();
+        }
         public async Task<BookEntity> UpdeteBookById(int id, BookEntity updateBook)
         {
             var isExist = await _context.Books

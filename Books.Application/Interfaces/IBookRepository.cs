@@ -14,10 +14,11 @@ namespace Books.Application.Interfaces
         /// </summary>
         /// <returns></returns>
         Task<ICollection<BookEntity>> GetAllBooksAsync();
-        Task<BookEntity> GetBookById(int id);
-        Task<int?> AddBookAsync(BookEntity book);
+        Task<BookEntity> GetBookByIdAsync(int id);
+        Task<int?> AddBookAsync(BookEntity book, ICollection<int>? authorsId);
         Task<BookEntity> UpdeteBookById(int id, BookEntity updateBook);
         Task<int?> DeleteBookAsync(BookEntity book);
         Task<ICollection<BookEntity>> DeleteAllBooksAsync();
+        Task<ICollection<BookEntity>> GetChunk(int pagenum, int limit);
     }
 }

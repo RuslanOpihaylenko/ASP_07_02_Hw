@@ -7,29 +7,40 @@ namespace Books.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BooksController(IBookRepository _bookRepository):ControllerBase
+    public class BooksController(IBookService _bookService) : ControllerBase
     {
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var books = await _bookRepository.GetAllBooksAsync();
-            var result = books.Select(book => new BookReadDto(book));
-            return Ok(result);
+            var books = await _bookService.GetAllBooksAsync();
+            return Ok(books);
         }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBookById([FromRoute] int id)
         {
-            var book = await _bookRepository.GetBookById(id);
-            var result = new BookReadDto(book);
-            return Ok(result);
+            var book = await _bookService.GetBookByIdAsync(id);
+            return Ok(book);
         }
         [HttpPost]
         public async Task<IActionResult> AddBook([FromBody] BookCreateDto bookDto)
         {
-            var book = new BookEntity();
-            await _bookRepository.AddBookAsync(book);
-
-            return Ok(book);
+            int? id = await _bookService.CreateBookAsync(bookDto);
+            if (id != null)
+            {
+                return CreatedAtAction(nameof(GetBookById), new { id }, id);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+        [HttpGet]
+        [Route("paged")]
+        public async Task<IActionResult> GetPaged(
+            [FromQuery] int pagenum = 1, [FromQuery] int limit = 10)
+        {
+            var books  = await _bookService.GetChunkAsync(pagenum, limit);
+            return Ok(books);
         }
     }
 }

@@ -1,4 +1,6 @@
 using Books.Application.Interfaces;
+using Books.Application.Mapping;
+using Books.Application.Services;
 using Books.Infrastructure.Data;
 using Books.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +17,9 @@ namespace Books.Api
             });
 
             // Add services to the container.
+            builder.Services.AddAutoMapper(_ => { }, typeof(BookProfile).Assembly);
             builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddScoped<IBookService, BookService>();
             builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
             builder.Services.AddScoped<IGenerRepository, GenreRepository>();
             builder.Services.AddControllers();
