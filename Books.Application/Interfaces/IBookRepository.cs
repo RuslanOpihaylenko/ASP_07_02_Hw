@@ -20,5 +20,7 @@ namespace Books.Application.Interfaces
         Task<int?> DeleteBookAsync(BookEntity book);
         Task<ICollection<BookEntity>> DeleteAllBooksAsync();
         Task<ICollection<BookEntity>> GetChunk(int pagenum, int limit);
+        Task<ICollection<BookEntity>> SearchBooksAsync(
+            string? author, int? year, string? genre);
     }
 }

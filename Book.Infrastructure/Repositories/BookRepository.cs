@@ -40,7 +40,7 @@ namespace Books.Infrastructure.Repositories
             await _context.SaveChangesAsync();
             return book.Id;
         }
-        
+
         public async Task<ICollection<BookEntity>> DeleteAllBooksAsync()
         {
             var books = await _context.Books.ToListAsync();
@@ -51,7 +51,7 @@ namespace Books.Infrastructure.Repositories
 
         public async Task<int?> DeleteBookAsync(BookEntity book)
         {
-            if (book == null) 
+            if (book == null)
             {
                 return null;
             }
@@ -73,7 +73,7 @@ namespace Books.Infrastructure.Repositories
         public async Task<ICollection<BookEntity>> GetChunk(int pagenum, int limit)
         {
             if (pagenum <= 0) pagenum = 1;
-            if(limit <= 0) limit = 10;
+            if (limit <= 0) limit = 10;
 
             int next = (pagenum - 1) * limit;
             return await _context.Books
@@ -102,6 +102,28 @@ namespace Books.Infrastructure.Repositories
             await _context.SaveChangesAsync();
 
             return isExist;
+        }
+        public async Task<ICollection<BookEntity>> SearchBooksAsync(
+            string? author, int? year, string? genre)
+        {
+            var query = _context.Books
+                .Include(b => b.Authors)
+                .Include(b => b.Genre).AsQueryable();
+
+            if (author != null)
+            {
+                query = query.Where(b => b.Authors.Any(a => a.Name.Contains(author) ||
+                a.Surname.Contains(author)));
+            }
+            if (year != null)
+            {
+                query = query.Where(b => b.Year == year);
+            }
+            if (genre != null)
+            {
+                query = query.Where(b => b.Genre.Title.Contains(genre));
+            }
+            return await query.ToListAsync();
         }
     }
 }

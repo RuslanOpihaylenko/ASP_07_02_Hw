@@ -14,10 +14,11 @@ namespace Books.Application.Interfaces
         /// </summary>
         /// <returns></returns>
         Task<ICollection<AuthorEntity>> GetAllAuthorAsync();
-        Task<AuthorEntity> GetAuthorById(int id);
-        Task<int>? AddAuthorAsync(AuthorEntity author);
+        Task<AuthorEntity> GetAuthorByIdAsync(int id);
+        Task<int>? AddAuthorAsync(AuthorEntity author, ICollection<int>? booksId);
         Task<AuthorEntity> UpdeteAuthorById(int id, AuthorEntity updateAuthor);
         Task<int?> DeleteAuthorAsync(AuthorEntity author);
         Task<ICollection<AuthorEntity>> DeleteAllAuthorsAsync();
+        Task<ICollection<AuthorEntity>> SearchAuthorsAsync(string name);
     }
 }

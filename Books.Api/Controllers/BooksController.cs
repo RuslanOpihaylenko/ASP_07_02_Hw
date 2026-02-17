@@ -1,5 +1,7 @@
-﻿using Books.Application.DTOs.BookDTOs;
+﻿using Books.Application.DTOs.AuthorDTOs;
+using Books.Application.DTOs.BookDTOs;
 using Books.Application.Interfaces;
+using Books.Application.Services;
 using Books.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +43,42 @@ namespace Books.Api.Controllers
         {
             var books  = await _bookService.GetChunkAsync(pagenum, limit);
             return Ok(books);
+        }
+        [HttpGet]
+        [Route("search")]
+        public async Task<IActionResult> SearchBooks(
+            [FromQuery] string? author, [FromQuery] int? year, [FromQuery] string? genre)
+        {
+            var books = await _bookService.SearchBooksAsync(author, year, genre);
+            return Ok(books);
+        }
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> Update(int id, BookUpdateDto dto)
+        {
+            var result = await _bookService.UpdeteBookAsync(id, dto);
+
+            if (result == null)
+                return NotFound();
+
+            return Ok(result);
+        }
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var success = await _bookService.DeleteBookAsync(id);
+
+            if (!success)
+                return NotFound();
+
+            return NoContent();
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAll()
+        {
+            var count = await _bookService.DeleteAllBooksAsync();
+            return Ok($"Deleted {count} books");
         }
     }
 }

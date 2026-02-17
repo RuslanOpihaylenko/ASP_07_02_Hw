@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Books.Domain.Entities
+namespace Books.Application.DTOs.AuthorDTOs
 {
-    public class AuthorEntity
+    public class AuthorUpdateDto
     {
-        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Surname { get; set; } = string.Empty;
-        public ICollection<BookEntity>? Books { get; set; }
-        public AuthorEntity() { }
+        public ICollection<int>? Books { get; set; }
     }
 }

@@ -18,10 +18,14 @@ namespace Books.Api
 
             // Add services to the container.
             builder.Services.AddAutoMapper(_ => { }, typeof(BookProfile).Assembly);
+            builder.Services.AddAutoMapper(_ => { }, typeof(AuthorProfile).Assembly);
+            builder.Services.AddAutoMapper(_ => { }, typeof(GenreProfile).Assembly);
             builder.Services.AddScoped<IBookRepository, BookRepository>();
             builder.Services.AddScoped<IBookService, BookService>();
+            builder.Services.AddScoped<IAuthorService, AuthorService>();
+            builder.Services.AddScoped<IGenreService, GenreService>();
             builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
-            builder.Services.AddScoped<IGenerRepository, GenreRepository>();
+            builder.Services.AddScoped<IGenreRepository, GenreRepository>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

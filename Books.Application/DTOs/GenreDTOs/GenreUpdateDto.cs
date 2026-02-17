@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Books.Domain.Entities
+namespace Books.Application.DTOs.GenreDTOs
 {
-    public class GenreEntity
+    public class GenreUpdateDto
     {
-        public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
-        public ICollection<BookEntity>? Books { get; set; }
-        public GenreEntity() { }
+        public ICollection<int>? Books { get; set; }
     }
 }

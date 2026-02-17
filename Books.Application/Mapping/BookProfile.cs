@@ -18,6 +18,8 @@ namespace Books.Application.Mapping
 
             CreateMap<BookEntity, BookReadDto>()
                 .ForMember(dest => dest.AuthorsId, opt => opt.MapFrom(src => src.Authors.Select(a => a.Id)));
+            CreateMap<BookUpdateDto, BookEntity>()
+               .ForMember(dest => dest.Authors, opt => opt.Ignore());
         }
     }
 }

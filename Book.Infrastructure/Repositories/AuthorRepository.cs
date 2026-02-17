@@ -17,11 +17,20 @@ namespace Books.Infrastructure.Repositories
         {
             _context = context;
         }
-
-        public async Task<int>? AddAuthorAsync(AuthorEntity author)
+        private async Task<ICollection<BookEntity>> GetBooksAsync(ICollection<int> booksId)
         {
+            var books = await _context.Books.Where(a => booksId.Contains(a.Id)).ToListAsync();
+            if (books.Count != booksId.Count)
+                throw new Exception("Some books not found");
+            return books;
+        }
+        public async Task<int>? AddAuthorAsync(AuthorEntity author, ICollection<int>? booksId)
+        {
+            if (booksId != null)
+                author.Books = await GetBooksAsync(booksId);
             _context.Authors.Add(author);
-            return await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+            return author.Id;
         }
 
         public async Task<ICollection<AuthorEntity>> DeleteAllAuthorsAsync()
@@ -49,7 +58,7 @@ namespace Books.Infrastructure.Repositories
                 .ToListAsync();
         }
 
-        public async Task<AuthorEntity> GetAuthorById(int id)
+        public async Task<AuthorEntity> GetAuthorByIdAsync(int id)
         {
             return await _context.Authors.Include(b => b.Books).FirstOrDefaultAsync(b => b.Id == id);
         }
@@ -72,6 +81,12 @@ namespace Books.Infrastructure.Repositories
             await _context.SaveChangesAsync();
 
             return isExist;
+        }
+        public async Task<ICollection<AuthorEntity>> SearchAuthorsAsync(string name)
+        {
+            return await _context.Authors
+                .Where(a=>a.Name.Contains(name) || a.Surname.Contains(name))
+                .ToListAsync();
         }
     }
 }

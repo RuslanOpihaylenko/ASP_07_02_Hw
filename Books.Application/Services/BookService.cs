@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 
 using Books.Application.DTOs.BookDTOs;
-
 using Books.Application.Interfaces;
 
 using Books.Domain.Entities;
@@ -71,6 +70,40 @@ public class BookService : IBookService
         var books = await _repository.GetChunk(pagenum, limit);
         return _mapper.Map<ICollection<BookReadDto>>(books);
     }
+    //Search books
+    public async Task<ICollection<BookReadDto>> SearchBooksAsync(
+        string? author, int? year, string? genre)
+    {
+        var books = await _repository.SearchBooksAsync(author, year, genre);
+        return _mapper.Map<ICollection<BookReadDto>>(books);
+    }
+    //Update book
+    public async Task<BookReadDto?> UpdeteBookAsync(int id, BookUpdateDto dto)
+    {
+        var entity = _mapper.Map<BookEntity>(dto);
+        var update = await _repository.UpdeteBookById(id, entity);
 
+        if (update == null) return null;
+
+        return _mapper.Map<BookReadDto>(update);
+    }
+    //Delete by id
+    public async Task<bool> DeleteBookAsync(int id)
+    {
+        var book = await _repository.GetBookByIdAsync(id);
+
+        if (book == null)
+            return false;
+
+        var result = await _repository.DeleteBookAsync(book);
+
+        return result != null && result > 0;
+    }
+    //Delete all book
+    public async Task<int> DeleteAllBooksAsync()
+    {
+        var deleted = await _repository.DeleteAllBooksAsync();
+        return deleted.Count;
+    }
 }
 

@@ -1,4 +1,5 @@
 ﻿using Books.Application.DTOs.BookDTOs;
+using Books.Application.DTOs.GenreDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,5 +36,26 @@ namespace Books.Application.Interfaces
         /// <param name="limit"></param>
         /// <returns></returns>
         Task<ICollection<BookReadDto>> GetChunkAsync(int pagenum, int limit);
+        /// <summary>
+        /// Search books
+        /// </summary>
+        /// <param name="author"></param>
+        /// <param name="year"></param>
+        /// <param name="genre"></param>
+        /// <returns></returns>
+        Task<ICollection<BookReadDto>> SearchBooksAsync(
+             string? author, int? year, string? genre);
+        /// <summary>
+        /// Update book by id
+        /// </summary>
+        Task<BookReadDto?> UpdeteBookAsync(int id, BookUpdateDto dto);
+        /// <summary>
+        /// Delete book by id
+        /// </summary>
+        Task<bool> DeleteBookAsync(int id);
+        /// <summary>
+        /// Delete all books
+        /// </summary>
+        Task<int> DeleteAllBooksAsync();
     }
 }
