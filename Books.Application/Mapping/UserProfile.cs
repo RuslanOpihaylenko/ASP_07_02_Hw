@@ -1,0 +1,25 @@
+﻿using AutoMapper;
+using Books.Application.DTOs.BookDTOs;
+using Books.Application.DTOs.UserDTOs;
+using Books.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Books.Application.Mapping
+{
+    public class UserProfile:Profile
+    {
+        UserProfile() 
+        {
+
+            CreateMap<UserCreateDto, UserEntity>()
+                .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(
+                    src=>src.Password));
+
+            CreateMap<UserEntity, UserReadDto>();
+        }
+    }
+}
