@@ -10,12 +10,10 @@ namespace Books.Application.DTOs.UserDTOs
 {
     public class UserReadDto
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
-        [Required]
-        [EmailAddress]
+        public Guid Id { get; set; }
         public string Email { get; set; }
-        public UserRole Role { get; set; } = UserRole.User;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public bool IsActive { get; set; } = true;
+        public UserRole Role { get; set; } 
+        public DateTime CreatedAt { get; set; } 
+        public bool IsActive { get; set; }
     }
 }

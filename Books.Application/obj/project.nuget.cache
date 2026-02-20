@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "TX8n9xV6JQE=",
+  "dgSpecHash": "/PzdV010KCU=",
   "success": true,
   "projectFilePath": "C:\\Users\\rysya\\Desktop\\Library\\Books.Application\\Books.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rysya\\.nuget\\packages\\automapper\\16.0.0\\automapper.16.0.0.nupkg.sha512",
+    "C:\\Users\\rysya\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\rysya\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\rysya\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0\\microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\rysya\\.nuget\\packages\\microsoft.extensions.options\\10.0.0\\microsoft.extensions.options.10.0.0.nupkg.sha512",

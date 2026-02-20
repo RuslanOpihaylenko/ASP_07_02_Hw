@@ -14,9 +14,7 @@ namespace Books.Application.DTOs.UserDTOs
         [EmailAddress]
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Repeate_Password { get; set; }
+        public string ConfirmPassword { get; set; }
         public UserRole Role { get; set; } = UserRole.User;
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        public bool IsActive { get; set; } = true;
     }
 }

@@ -10,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace Books.Application.Mapping
 {
-    public class UserProfile:Profile
+    public class UserProfile : Profile
     {
-        UserProfile() 
+        public UserProfile()
         {
 
             CreateMap<UserCreateDto, UserEntity>()
                 .ForMember(dest => dest.PasswordHash, opt => opt.MapFrom(
-                    src=>src.Password));
+                    src => src.Password));
 
             CreateMap<UserEntity, UserReadDto>();
         }

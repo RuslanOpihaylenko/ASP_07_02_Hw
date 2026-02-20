@@ -14,6 +14,7 @@ namespace Books.Domain.Entities
         public int GenreId { get; set; }
         public GenreEntity? Genre { get; set; } 
         public ICollection<AuthorEntity>? Authors { get; set; }
+        public DateTime? CreatedAt { get; }
         public BookEntity() { }
 
     }

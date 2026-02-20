@@ -27,7 +27,7 @@ namespace Books.Application.Services
         {
             var genre = _mapper.Map<GenreEntity>(dto);
 
-            return await _repository.AddGenreAsync(genre, dto.Books);
+            return await _repository.AddGenreAsync(genre);//, dto.Books);
         }
         //Get genre by id
         public async Task<GenreReadDto?> GetGenreByIdAsync(int id)

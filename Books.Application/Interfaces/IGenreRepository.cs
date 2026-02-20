@@ -15,7 +15,7 @@ namespace Books.Application.Interfaces
         /// <returns></returns>
         Task<ICollection<GenreEntity>> GetAllGenreAsync();
         Task<GenreEntity> GetGenreByIdAsync(int id);
-        Task<int>? AddGenreAsync(GenreEntity genre, ICollection<int>? booksId);
+        Task<int>? AddGenreAsync(GenreEntity genre);//, ICollection<int>? booksId);
         Task<GenreEntity> UpdeteGenreById(int id, GenreEntity updateGenre);
         Task<int?> DeleteGenreAsync(GenreEntity genre);
         Task<ICollection<GenreEntity>> DeleteAllGenresAsync();

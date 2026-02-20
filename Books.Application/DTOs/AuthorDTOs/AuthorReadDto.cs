@@ -12,7 +12,7 @@ namespace Books.Application.DTOs.AuthorDTOs
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string Surname { get; set; } = string.Empty;
-        public ICollection<int>? BooksId { get; set; }
+        //public ICollection<int>? BooksId { get; set; }
         public AuthorReadDto()
         {
         }
@@ -21,7 +21,7 @@ namespace Books.Application.DTOs.AuthorDTOs
             Id = author.Id;
             Name = author.Name;
             Surname = author.Surname;
-            BooksId = author.Books == null ? [] : author.Books.Select(book => book.Id).ToList();
+         //   BooksId = author.Books == null ? [] : author.Books.Select(book => book.Id).ToList();
         }
     }
 }

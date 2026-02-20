@@ -15,7 +15,7 @@ namespace Books.Application.Interfaces
         /// <returns></returns>
         Task<ICollection<AuthorEntity>> GetAllAuthorAsync();
         Task<AuthorEntity> GetAuthorByIdAsync(int id);
-        Task<int>? AddAuthorAsync(AuthorEntity author, ICollection<int>? booksId);
+        Task<int>? AddAuthorAsync(AuthorEntity author);//, ICollection<int>? booksId);
         Task<AuthorEntity> UpdeteAuthorById(int id, AuthorEntity updateAuthor);
         Task<int?> DeleteAuthorAsync(AuthorEntity author);
         Task<ICollection<AuthorEntity>> DeleteAllAuthorsAsync();

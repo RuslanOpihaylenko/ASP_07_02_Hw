@@ -17,17 +17,17 @@ namespace Books.Infrastructure.Repositories
         {
             _context = context;
         }
-        private async Task<ICollection<BookEntity>> GetBooksAsync(ICollection<int> booksId)
+        //private async Task<ICollection<BookEntity>> GetBooksAsync(ICollection<int> booksId)
+        //{
+        //    var books = await _context.Books.Where(a => booksId.Contains(a.Id)).ToListAsync();
+        //    if (books.Count != booksId.Count)
+        //        throw new Exception("Some books not found");
+        //    return books;
+        //}
+        public async Task<int>? AddGenreAsync(GenreEntity genre)//, ICollection<int>? booksId)
         {
-            var books = await _context.Books.Where(a => booksId.Contains(a.Id)).ToListAsync();
-            if (books.Count != booksId.Count)
-                throw new Exception("Some books not found");
-            return books;
-        }
-        public async Task<int>? AddGenreAsync(GenreEntity genre, ICollection<int>? booksId)
-        {
-            if (booksId != null)
-                genre.Books = await GetBooksAsync(booksId);
+            //if (booksId != null)
+            //    genre.Books = await GetBooksAsync(booksId);
 
             _context.Genres.Add(genre);
             await _context.SaveChangesAsync();

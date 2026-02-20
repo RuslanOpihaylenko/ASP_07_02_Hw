@@ -27,7 +27,7 @@ namespace Books.Application.Services
         {
             var author = _mapper.Map<AuthorEntity>(dto);
 
-            return await _repository.AddAuthorAsync(author, dto.Books);
+            return await _repository.AddAuthorAsync(author);//, dto.Books);
         }
         //Get author by id
         public async Task<AuthorReadDto?> GetAuthorByIdAsync(int id)

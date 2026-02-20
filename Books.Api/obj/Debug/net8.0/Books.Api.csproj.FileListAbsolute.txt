@@ -178,3 +178,4 @@ C:\Users\rysya\Desktop\Library\Books.Api\bin\Debug\net8.0\Books.Application.pdb
 C:\Users\rysya\Desktop\Library\Books.Api\bin\Debug\net8.0\Books.Domain.pdb
 C:\Users\rysya\Desktop\Library\Books.Api\obj\Debug\net8.0\Books.Api.sourcelink.json
 C:\Users\rysya\Desktop\Library\Books.Api\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\rysya\Desktop\Library\Books.Api\bin\Debug\net8.0\BCrypt.Net-Next.dll

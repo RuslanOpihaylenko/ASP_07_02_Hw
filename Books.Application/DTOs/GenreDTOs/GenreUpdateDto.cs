@@ -9,6 +9,6 @@ namespace Books.Application.DTOs.GenreDTOs
     public class GenreUpdateDto
     {
         public string Title { get; set; } = string.Empty;
-        public ICollection<int>? Books { get; set; }
+      //  public ICollection<int>? Books { get; set; }
     }
 }

@@ -21,5 +21,9 @@ public class LibraryDBContext:DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<UserEntity>().HasIndex(u => u.Email).IsUnique();
+        modelBuilder.Entity<BookEntity>()
+         .Property(b => b.CreatedAt)
+         .HasDefaultValueSql("SYSDATETIME()")
+         .IsRequired(false);
     }
 }

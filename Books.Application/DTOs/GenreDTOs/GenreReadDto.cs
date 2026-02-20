@@ -12,13 +12,13 @@ namespace Books.Application.DTOs.GenreDTOs
     {
         public int Id { get; set; }
         public string Title { get; set; } = string.Empty;
-        public ICollection<int>? BooksId { get; set; }
+       // public ICollection<int>? BooksId { get; set; }
         public GenreReadDto() { }
         public GenreReadDto(GenreEntity genre)
         {
             Id = genre.Id;
             Title = genre.Title;
-            BooksId = genre.Books == null ? [] : genre.Books.Select(book => book.Id).ToList();
+          //  BooksId = genre.Books == null ? [] : genre.Books.Select(book => book.Id).ToList();
         }
     }
 }
